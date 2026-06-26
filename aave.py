@@ -207,6 +207,20 @@ class Application:
             Configuration.load()
         )
 
+        self.user = User(
+            username="developer"
+        )
+
+        self.logger = ActivityLogger()
+
+    def initialize(self):
+
+        self.logger.record(
+            "Configuration loaded"
+        )
+
+        self.request = RequestModel(
+            self.environment,
             self.project,
             self.user
         ).create()
